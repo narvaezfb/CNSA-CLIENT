@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import InformationCardWrapper from "../InformationWrapper";
-import GameForm from "../../Forms/GameForm";
 import { gridSpacing } from "store/constant";
 
 // mui-ui
@@ -18,10 +17,13 @@ import { Grid } from "@material-ui/core";
 import RecruitmentRuleForm from "views/pages/Forms/RecruitmentRuleForm";
 
 const columns = [
-  { field: "recruitment_rule_id", headerName: "Recruitment Rule ID", width: 180 },
-  { field: "rule_name", headerName: "Rule Name ", width: 200  },
+  {
+    field: "recruitment_rule_id",
+    headerName: "Recruitment Rule ID",
+    width: 180,
+  },
+  { field: "rule_name", headerName: "Rule Name ", width: 200 },
   { field: "rule_description", headerName: "Rule Description", width: 700 },
-  
 ];
 
 const style = {
@@ -44,7 +46,7 @@ export default function RecruitmentTable() {
   const [existingRules, setExistingRules] = useState();
 
   //Load data from APIs
-  useEffect(() => { 
+  useEffect(() => {
     getRules();
   }, []);
 
@@ -94,7 +96,9 @@ export default function RecruitmentTable() {
               </Box>
               <div style={{ height: 400, width: 1000 }}>
                 <DataGrid
-                  getRowId={(existingRules) => existingRules.recruitment_rule_id}
+                  getRowId={(existingRules) =>
+                    existingRules.recruitment_rule_id
+                  }
                   rows={existingRules}
                   columns={columns}
                   pageSize={5}
