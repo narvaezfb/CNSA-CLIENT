@@ -53,12 +53,12 @@ const useStyles = makeStyles((theme) => ({
 const GameForm = () => {
   const classes = useStyles();
   const customization = useSelector((state) => state.customization);
-  const [age, setAge] = React.useState("");
 
   const [occuranceDate, setOcurranceDate] = useState();
   const [gameAttendance, setGameAttendance] = useState();
   const [stadium, setStadium] = useState();
   const [visitorTeam, setVisitorTeam] = useState();
+  /* eslint-disable no-unused-vars */
   const [localTeam, setLocalTeam] = useState();
   const [visitorScore, setVisitorScore] = useState();
   const [homeScore, setHomeScore] = useState();

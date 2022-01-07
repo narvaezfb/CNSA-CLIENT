@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import InformationCardWrapper from "../InformationWrapper";
-import GameForm from "../../Forms/GameForm";
 import { gridSpacing } from "store/constant";
 
 // mui-ui
@@ -19,8 +18,11 @@ import RecruitmentIncidentForm from "views/pages/Forms/RecruitmentIncidentForm";
 
 const columns = [
   { field: "game_id", headerName: "Game ID", width: 150 },
-  { field: "incident_id", headerName: "Incident # ", width: 200  },
-  { field: "incident_date", headerName: "Incident Date", width: 200,
+  { field: "incident_id", headerName: "Incident # ", width: 200 },
+  {
+    field: "incident_date",
+    headerName: "Incident Date",
+    width: 200,
     valueGetter: ({ value }) => value && new Date(value),
   },
 
@@ -49,10 +51,11 @@ export default function RecruitmentIncidentTable() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [existingRecruitmentIncidents, setExistingRecruitmentIncidents] = useState();
+  const [existingRecruitmentIncidents, setExistingRecruitmentIncidents] =
+    useState();
 
   //Load data from APIs
-  useEffect(() => { 
+  useEffect(() => {
     getRecIncidents();
   }, []);
 
@@ -102,7 +105,9 @@ export default function RecruitmentIncidentTable() {
               </Box>
               <div style={{ height: 400, width: 1000 }}>
                 <DataGrid
-                  getRowId={(existingRecruitmentIncidents) => existingRecruitmentIncidents.incident_id}
+                  getRowId={(existingRecruitmentIncidents) =>
+                    existingRecruitmentIncidents.incident_id
+                  }
                   rows={existingRecruitmentIncidents}
                   columns={columns}
                   pageSize={5}

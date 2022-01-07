@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import InformationCardWrapper from "../InformationWrapper";
-import GameForm from "../../Forms/GameForm";
 import { gridSpacing } from "store/constant";
 
 // mui-ui
@@ -15,14 +14,16 @@ import Modal from "@mui/material/Modal";
 
 // material-ui
 import { Grid } from "@material-ui/core";
-import RecruitmentRuleForm from "views/pages/Forms/RecruitmentRuleForm";
 import ScholarshipForm from "views/pages/Forms/ScholarshipForm";
 
 const columns = [
   { field: "scholarship_id", headerName: "Scholarship ID", width: 180 },
-  { field: "scholarship_name", headerName: "Scholarship Name ", width: 200  },
-  { field: "scholarship_description", headerName: "Scholarship Description", width: 700 },
-  
+  { field: "scholarship_name", headerName: "Scholarship Name ", width: 200 },
+  {
+    field: "scholarship_description",
+    headerName: "Scholarship Description",
+    width: 700,
+  },
 ];
 
 const style = {
@@ -45,7 +46,7 @@ export default function ScholarshipTable() {
   const [existingScholarships, setExistingScholarships] = useState();
 
   //Load data from APIs
-  useEffect(() => { 
+  useEffect(() => {
     getScholarships();
   }, []);
 
@@ -95,7 +96,9 @@ export default function ScholarshipTable() {
               </Box>
               <div style={{ height: 400, width: 1000 }}>
                 <DataGrid
-                  getRowId={(existingScholarships) => existingScholarships.scholarship_id}
+                  getRowId={(existingScholarships) =>
+                    existingScholarships.scholarship_id
+                  }
                   rows={existingScholarships}
                   columns={columns}
                   pageSize={5}

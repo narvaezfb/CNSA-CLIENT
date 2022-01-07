@@ -53,7 +53,6 @@ const bull = (
   </Box>
 );
 
-
 export default function PlayerStatisticsTable() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -62,6 +61,7 @@ export default function PlayerStatisticsTable() {
   const handleOpenPlayerCard = () => setOpenPlayerCard(true);
   const handleClosePlayerCard = () => setOpenPlayerCard(false);
   const [existingPlayers, setExistingPlayers] = useState();
+  /* eslint-disable no-unused-vars */
   const [selectedRows, setSelectedRows] = React.useState([]);
   const [selectedRow, setSelectedRow] = React.useState([]);
 
@@ -131,38 +131,43 @@ export default function PlayerStatisticsTable() {
                         {selectedRow.player_last_name}
                       </span>
                     </Typography>
-                    <Typography variant="h4" component="div" align="center" color="text.secondary">
-                    {selectedRow.position_name} {bull} {selectedRow.team_name}
+                    <Typography
+                      variant="h4"
+                      component="div"
+                      align="center"
+                      color="text.secondary"
+                    >
+                      {selectedRow.position_name} {bull} {selectedRow.team_name}
                     </Typography>
                     <Typography sx={{ fontSize: 18 }} color="text.secondary">
                       Statistics for game ID: {selectedRow.game_id}
                     </Typography>
                     <Typography variant="body2">
-                      Goal Kick: {selectedRow.player_goal_kick}                                         
+                      Goal Kick: {selectedRow.player_goal_kick}
                     </Typography>
                     <Typography variant="body2">
-                      Corner Kick: {selectedRow.player_corner_kick}                                             
+                      Corner Kick: {selectedRow.player_corner_kick}
                     </Typography>
                     <Typography variant="body2">
-                      Penalty Kick: {selectedRow.player_penalty_kick}                                            
+                      Penalty Kick: {selectedRow.player_penalty_kick}
                     </Typography>
                     <Typography variant="body2">
-                      Player Turnover: {selectedRow.player_turnovers}                                             
+                      Player Turnover: {selectedRow.player_turnovers}
                     </Typography>
                     <Typography sx={{ mb: 1.5 }} variant="body2">
-                      Player Passes: {selectedRow.player_passes}                                           
+                      Player Passes: {selectedRow.player_passes}
                     </Typography>
                     <Typography sx={{ fontSize: 18 }} color="text.secondary">
                       Flags
                     </Typography>
                     <Typography variant="body2">
-                      Yellow Cards: {selectedRow.player_yellow_cards}                                         
+                      Yellow Cards: {selectedRow.player_yellow_cards}
                     </Typography>
                     <Typography variant="body2">
-                      Red Cards: {selectedRow.player_red_cards}                                         
+                      Red Cards: {selectedRow.player_red_cards}
                     </Typography>
                     <Typography variant="body2">
-                      Fouls: {selectedRow.player_fouls}                                            
+                      Fouls: {selectedRow.player_fouls}
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -212,7 +217,7 @@ export default function PlayerStatisticsTable() {
                 </Typography>
               </Box>
               <div style={{ height: 400, width: 1000 }}>
-              <DataGrid
+                <DataGrid
                   onSelectionModelChange={(ids) => {
                     const selectedIDs = new Set(ids);
                     const selectedRows = existingPlayers.filter((row) =>

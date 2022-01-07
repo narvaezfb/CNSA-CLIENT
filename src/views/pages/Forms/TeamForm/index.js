@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import AuthWrapper1 from "../../authentication/AuthWrapper1";
-import PlayerCardWrapper from "../FormWrapper";
+// import { useSelector } from "react-redux";
 
 // material-ui
 import { makeStyles } from "@material-ui/styles";
@@ -14,14 +12,12 @@ import {
   InputLabel,
   OutlinedInput,
   Typography,
-  Divider,
   Select,
   MenuItem,
 } from "@material-ui/core";
 
 // project imports
 import AnimateButton from "ui-component/extended/AnimateButton";
-import SchoolForm from "../SchoolForm";
 
 // style constant
 const useStyles = makeStyles((theme) => ({
@@ -53,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 const TeamForm = () => {
   const classes = useStyles();
-  const customization = useSelector((state) => state.customization);
+  // const customization = useSelector((state) => state.customization);
 
   //Player data that will be stored
   const [teamName, setTeamName] = useState();

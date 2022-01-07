@@ -13,10 +13,8 @@ import AddIcon from "@material-ui/icons/AddRounded";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
-
 // material-ui
 import { Grid } from "@material-ui/core";
-
 
 const style = {
   position: "absolute",
@@ -30,27 +28,26 @@ const style = {
   p: 4,
 };
 
-const cardStyle = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "40% ",
-  bgcolor: "background.paper",
-  borderRadius: "16px",
-  boxShadow: 24,
-  p: 4,
-};
+// const cardStyle = {
+//   position: "absolute",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%, -50%)",
+//   width: "40% ",
+//   bgcolor: "background.paper",
+//   borderRadius: "16px",
+//   boxShadow: 24,
+//   p: 4,
+// };
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
-
+// const bull = (
+//   <Box
+//     component="span"
+//     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
+//   >
+//     •
+//   </Box>
+// );
 
 export default function PlayerTable() {
   const [open, setOpen] = React.useState(false);
@@ -93,7 +90,7 @@ export default function PlayerTable() {
       width: 180,
       valueGetter: ({ value }) => value && new Date(value),
     },
-  
+
     {
       field: "position_name",
       headerName: "Position",
@@ -102,7 +99,6 @@ export default function PlayerTable() {
     },
     { field: "team_name", headerName: "Team", type: "text", width: 180 },
     { field: "ranking", headerName: "Ranking", type: "number", width: 180 },
-    
   ];
 
   return (
@@ -140,7 +136,7 @@ export default function PlayerTable() {
                 </Typography>
               </Box>
               <div style={{ height: 400, width: 1000 }}>
-              <DataGrid
+                <DataGrid
                   getRowId={(existingPlayers) => existingPlayers.player_id}
                   rows={existingPlayers}
                   columns={columns}

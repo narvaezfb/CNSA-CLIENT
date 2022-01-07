@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import AuthWrapper1 from "../../authentication/AuthWrapper1";
 import PlayerCardWrapper from "../FormWrapper";
 
@@ -15,7 +15,7 @@ import {
   Typography,
   TextField,
   Select,
-  MenuItem
+  MenuItem,
 } from "@material-ui/core";
 
 // project imports
@@ -156,7 +156,7 @@ const TeamStaffForm = () => {
                       </Grid>
 
                       <Grid item xs={12}>
-                      <FormControl fullWidth className={classes.Input}>
+                        <FormControl fullWidth className={classes.Input}>
                           <InputLabel htmlFor="first-name">
                             Email Address
                           </InputLabel>
