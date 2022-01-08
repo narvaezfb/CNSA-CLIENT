@@ -62,7 +62,7 @@ export default function PlayerTable() {
 
   const getPlayers = () => {
     return axios
-      .get("/cnsa/v1/players")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/players")
       .then((response) => {
         setExistingPlayers(response.data.data);
         console.log(response.data.data);
