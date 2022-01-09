@@ -78,7 +78,7 @@ const PopularCard = ({ isLoading }) => {
 
   const getTopPlayers = () => {
     return axios
-      .get("/cnsa/v1/topPlayer")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/topPlayer")
       .then((response) => {
         setTopPlayers(response.data.data);
         console.log(response.data.data);

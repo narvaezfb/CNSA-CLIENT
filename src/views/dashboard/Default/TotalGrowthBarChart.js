@@ -38,7 +38,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
 
   const getTotalGames = () => {
     return axios
-      .get("/cnsa/v1/totalGames")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/totalGames")
       .then((response) => {
         setTotalGames(response.data.data);
         console.log(response.data.data);
@@ -48,7 +48,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
 
   const getGameStats = () => {
     return axios
-      .get("/cnsa/v1/gameStatistics")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/gameStatistics")
       .then((response) => {
         setGameStats(response.data.data);
         console.log(response.data.data);

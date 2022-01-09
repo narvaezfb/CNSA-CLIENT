@@ -71,7 +71,7 @@ const TotalIncomeLightCard = ({ isLoading }) => {
 
   const getTotalCoaches = () => {
     return axios
-      .get("/cnsa/v1/totalCoaches")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/totalCoaches")
       .then((response) => {
         setTotalCoaches(response.data.data);
         console.log(response.data.data);

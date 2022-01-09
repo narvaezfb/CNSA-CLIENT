@@ -109,7 +109,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
 
   const getTotalPlayerIncident = () => {
     return axios
-      .get("/cnsa/v1/totalPlayerInc")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/totalPlayerInc")
       .then((response) => {
         setTotalPlayerIncident(response.data.data);
         console.log(response.data.data);
