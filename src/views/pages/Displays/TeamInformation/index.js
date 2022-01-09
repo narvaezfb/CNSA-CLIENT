@@ -48,7 +48,7 @@ export default function TeamTable() {
 
   const getTeams = () => {
     return axios
-      .get("/cnsa/v1/teams")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/teams")
       .then((response) => {
         setExistingTeams(response.data.data);
         console.log(response.data.data);

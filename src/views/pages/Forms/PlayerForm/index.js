@@ -57,7 +57,7 @@ const PlayerForm = () => {
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [dateOfBirth, setDateOfBirth] = useState();
-  const [rank, setRank] = useState();  
+  const [rank, setRank] = useState();
   const [team, setTeam] = useState(0);
   const [position, setPosition] = useState(0);
   const [existingPositions, setExistingPositions] = useState();
@@ -72,7 +72,7 @@ const PlayerForm = () => {
   //Get Existing teams from Teams API
   const getTeams = () => {
     return axios
-      .get("/cnsa/v1/teams")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/teams")
       .then((response) => {
         setExistingTeams(response.data.data);
       })
@@ -82,7 +82,7 @@ const PlayerForm = () => {
   //Get Existing Positions from Teams API
   const getPositions = () => {
     return axios
-      .get("/cnsa/v1/positions")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/positions")
       .then((response) => {
         setExistingPositions(response.data.data);
       })
@@ -97,7 +97,7 @@ const PlayerForm = () => {
       player_first_name: firstName,
       player_last_name: lastName,
       player_date_of_birth: dateOfBirth,
-      position_id: position,   
+      position_id: position,
       team_id: team,
       ranking: rank,
     };
@@ -106,7 +106,7 @@ const PlayerForm = () => {
     const result = await axios({
       method: "POST",
       headers: { "content-type": "application/json" },
-      url: "/cnsa/v1/players",
+      url: "https://cnsa-server.nn.r.appspot.com/cnsa/v1/players",
       data: data,
     });
 
@@ -256,7 +256,7 @@ const PlayerForm = () => {
                   id="demo-simple-select"
                   value={team}
                   label="team"
-                  input={<OutlinedInput label="Select Team"/>}
+                  input={<OutlinedInput label="Select Team" />}
                   onChange={(e) => setTeam(e.target.value)}
                 >
                   {existingTeams?.map((team, index) => (
@@ -279,7 +279,7 @@ const PlayerForm = () => {
                   id="demo-simple-select"
                   value={position}
                   label="position"
-                  input={<OutlinedInput label="Select Position"/>}
+                  input={<OutlinedInput label="Select Position" />}
                   onChange={(e) => setPosition(e.target.value)}
                 >
                   {existingPositions?.map((position, index) => (
@@ -287,7 +287,7 @@ const PlayerForm = () => {
                       {position.position_name}
                     </MenuItem>
                   ))}
-                </Select> 
+                </Select>
               </FormControl>
             </Box>
           </Grid>

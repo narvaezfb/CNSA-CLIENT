@@ -52,7 +52,7 @@ export default function RecruitmentTable() {
 
   const getRules = () => {
     return axios
-      .get("/cnsa/v1/recRules")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/recRules")
       .then((response) => {
         setExistingRules(response.data.data);
         console.log(response.data.data);

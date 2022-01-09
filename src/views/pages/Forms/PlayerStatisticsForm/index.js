@@ -57,12 +57,12 @@ const PlayerStatisticsForm = () => {
   const [cornerKick, setCornerKick] = useState();
   const [penaltyKick, setPenaltyKick] = useState();
   const [passes, setPasses] = useState();
-  const [freeKick, setFreeKick] = useState();  
+  const [freeKick, setFreeKick] = useState();
   const [turnovers, setTurnovers] = useState();
   const [touches, setTouches] = useState();
   const [redCard, setRedCard] = useState();
   const [yellowCard, setYellowCard] = useState();
-  const [fouls, setFouls] = useState(); 
+  const [fouls, setFouls] = useState();
   const [player, setPlayer] = useState(0);
   const [game, setGame] = useState(0);
   const [existingPlayers, setExistingPlayers] = useState();
@@ -77,7 +77,7 @@ const PlayerStatisticsForm = () => {
   //Get Existing teams from Teams API
   const getGames = () => {
     return axios
-      .get("/cnsa/v1/games")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/games")
       .then((response) => {
         setExistingGames(response.data.data);
       })
@@ -87,7 +87,7 @@ const PlayerStatisticsForm = () => {
   //Get Existing Positions from Teams API
   const getPlayers = () => {
     return axios
-      .get("/cnsa/v1/players")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/players")
       .then((response) => {
         setExistingPlayers(response.data.data);
       })
@@ -103,7 +103,7 @@ const PlayerStatisticsForm = () => {
       player_penalty_kick: penaltyKick,
       player_passes: passes,
       player_free_kicks: freeKick,
-      player_turnovers: turnovers,  
+      player_turnovers: turnovers,
       player_touches: touches,
       player_red_cards: redCard,
       player_yellow_cards: yellowCard,
@@ -128,7 +128,7 @@ const PlayerStatisticsForm = () => {
   };
   return (
     <>
-      <Grid container justify = "center">
+      <Grid container justify="center">
         <Grid
           item
           xs={12}
@@ -143,7 +143,7 @@ const PlayerStatisticsForm = () => {
           >
             <Typography variant="h3">Player Statistic Entry Form</Typography>
           </Box>
-        </Grid> 
+        </Grid>
       </Grid>
 
       <form onSubmit={submitPlayerStatistics}>
@@ -276,7 +276,7 @@ const PlayerStatisticsForm = () => {
               />
             </FormControl>
           </Grid>
-          
+
           <Grid item xs={3} md={3}>
             <FormControl fullWidth className={classes.Input}>
               <InputLabel htmlFor="first-name">Fouls</InputLabel>
@@ -332,8 +332,6 @@ const PlayerStatisticsForm = () => {
             </FormControl>
           </Grid>
 
-          
-
           <Grid item xs={12}>
             <Box
               sx={{
@@ -375,7 +373,7 @@ const PlayerStatisticsForm = () => {
                   id="demo-simple-select"
                   value={player}
                   label="player"
-                  input={<OutlinedInput label="Select Player"/>}
+                  input={<OutlinedInput label="Select Player" />}
                   onChange={(e) => setPlayer(e.target.value)}
                 >
                   {existingPlayers?.map((player, index) => (
@@ -387,7 +385,7 @@ const PlayerStatisticsForm = () => {
               </FormControl>
             </Box>
           </Grid>
-          <Grid  item xs={6} md={6}>
+          <Grid item xs={6} md={6}>
             <Box autoWidth="true" sx={{ minWidth: "50%" }}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">
@@ -398,7 +396,7 @@ const PlayerStatisticsForm = () => {
                   id="demo-simple-select"
                   value={game}
                   label="game"
-                  input={<OutlinedInput label="Select the Game Played "/>}
+                  input={<OutlinedInput label="Select the Game Played " />}
                   onChange={(e) => setGame(e.target.value)}
                 >
                   {existingGames?.map((game, index) => (

@@ -52,8 +52,6 @@ const RecruitmentRuleForm = () => {
 
   //This function will send the data to the Create Team API
   const submitRecruitmentForm = async () => {
-
-
     //gather all data that will be sent
     const data = {
       rule_name: ruleName,
@@ -64,7 +62,7 @@ const RecruitmentRuleForm = () => {
     const result = await axios({
       method: "POST",
       headers: { "content-type": "application/json" },
-      url: "/cnsa/v1/recRules",
+      url: "https://cnsa-server.nn.r.appspot.com/cnsa/v1/recRules",
       data: data,
     });
 
@@ -74,7 +72,6 @@ const RecruitmentRuleForm = () => {
       console.log("something went wrong");
     }
   };
-
 
   return (
     <>
@@ -117,7 +114,7 @@ const RecruitmentRuleForm = () => {
             </FormControl>
           </Grid>
 
-          <Grid item xs={12}> 
+          <Grid item xs={12}>
             <FormControl fullWidth className={classes.Input}>
               <InputLabel htmlFor="first-name">Rule Description</InputLabel>
               <OutlinedInput

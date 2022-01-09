@@ -76,7 +76,7 @@ const GameForm = () => {
 
   const getExistingStadiums = () => {
     return axios
-      .get("/cnsa/v1/stadiums")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/stadiums")
       .then((response) => {
         setExistingStadiums(response.data.data);
       })
@@ -85,7 +85,7 @@ const GameForm = () => {
 
   const getExistingTeams = () => {
     return axios
-      .get("/cnsa/v1/teams")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/teams")
       .then((response) => {
         setExistingTeams(response.data.data);
       })
@@ -94,7 +94,7 @@ const GameForm = () => {
 
   const getGameTypes = () => {
     return axios
-      .get("/cnsa/v1/gameTypes")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/gameTypes")
       .then((response) => {
         setExistingGameTypes(response.data.data);
       })
@@ -117,7 +117,7 @@ const GameForm = () => {
     const result = await axios({
       method: "POST",
       headers: { "content-type": "application/json" },
-      url: "/cnsa/v1/games",
+      url: "https://cnsa-server.nn.r.appspot.com/cnsa/v1/games",
       data: data,
     });
 

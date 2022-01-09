@@ -64,7 +64,7 @@ const TeamForm = () => {
   //Get Existing Schools from Schools API
   const getSchools = () => {
     return axios
-      .get("/cnsa/v1/schools")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/schools")
       .then((response) => {
         setExistingSchools(response.data.data);
       })
@@ -83,7 +83,7 @@ const TeamForm = () => {
     const result = await axios({
       method: "POST",
       headers: { "content-type": "application/json" },
-      url: "/cnsa/v1/teams",
+      url: "https://cnsa-server.nn.r.appspot.com/cnsa/v1/teams",
       data: data,
     });
 

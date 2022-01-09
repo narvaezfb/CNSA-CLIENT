@@ -72,7 +72,7 @@ export default function PlayerStatisticsTable() {
 
   const getPlayers = () => {
     return axios
-      .get("/cnsa/v1/playerStatistics")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/playerStatistics")
       .then((response) => {
         setExistingPlayers(response.data.data);
         console.log(response.data.data);

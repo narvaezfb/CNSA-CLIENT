@@ -67,7 +67,7 @@ const StadiumForm = () => {
   //Get Existing Locations from Location API
   const getLocations = () => {
     return axios
-      .get("/cnsa/v1/locations")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/locations")
       .then((response) => {
         setExistingLocations(response.data.data);
       })
@@ -86,7 +86,7 @@ const StadiumForm = () => {
     const result = await axios({
       method: "POST",
       headers: { "content-type": "application/json" },
-      url: "/cnsa/v1/stadiums",
+      url: "https://cnsa-server.nn.r.appspot.com/cnsa/v1/stadiums",
       data: data,
     });
 
@@ -99,137 +99,137 @@ const StadiumForm = () => {
 
   return (
     <>
- <AuthWrapper1>
-              <Grid container sx={{ m: { xs: 1, sm: 3 }, mb: 0 }} justifyContent="center" >
-                <PlayerCardWrapper>
-                  <Grid
-                    container
-                    direction="column"
-                    justifyContent="center"
-                    spacing={2}
-                  >
-                    <Grid
-                      item
-                      xs={12}
-                      container
-                      alignItems="center"
-                      justifyContent="center"
-                    >
-                      <Box
-                        sx={{
-                          mb: 2,
-                        }}
-                      >
-                        <Typography variant="h3">Stadium Entry Form</Typography>
-                      </Box>
-                    </Grid>
-                  </Grid>
-      
-
-                  <form onSubmit={submitStadium}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12}>
-                        <FormControl fullWidth className={classes.Input}>
-                          <InputLabel htmlFor="stadium-capacity">
-                            Stadium Capacity
-                          </InputLabel>
-                          <OutlinedInput
-                            id="stadium-capacity"
-                            type="text"
-                            value={stadiumCapacity}
-                            onChange={(e) => setStadiumCapacity(e.target.value)}
-                            name="stadiumCapacity"
-                            label="Stadium Capacity"
-                            inputProps={{
-                              classes: {
-                                notchedOutline: classes.notchedOutline,
-                              },
-                            }}
-                          />
-                        </FormControl>
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Box
-                          sx={{
-                            alignItems: "center",
-                            display: "flex",
-                          }}
-                        >
-                          <Divider
-                            className={classes.signDivider}
-                            orientation="horizontal"
-                          />
-                          <AnimateButton>
-                            <Button
-                              variant="outlined"
-                              className={classes.signText}
-                              sx={{
-                                borderRadius: `${customization.borderRadius}px`,
-                              }}
-                              disableRipple
-                              disabled
-                            >
-                              Address Details
-                            </Button>
-                          </AnimateButton>
-                          <Divider
-                            className={classes.signDivider}
-                            orientation="horizontal"
-                          />
-                        </Box>
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Box autoWidth="true" sx={{ minWidth: 250 }}>
-                          <FormControl fullWidth>
-                            <InputLabel id="demo-customized-select-native">
-                              Select Stadium
-                            </InputLabel>
-                            <Select
-                              labelId="demo-customized-select-native"
-                              id="demo-customized-select-native"
-                              value={location}
-                              input={<OutlinedInput label="Select Stadium"/>}
-                              onChange={(e) => setLocation(e.target.value)}
-                            >
-                              {existingLocations?.map((location, index) => (
-                                <MenuItem
-                                  key={index}
-                                  value={location.location_id}
-                                >
-                                  {location.location_name}
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                        </Box>
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Box
-                          sx={{
-                            mt: 2,
-                          }}
-                        >
-                          <AnimateButton>
-                            <Button
-                              disableElevation
-                              fullWidth
-                              size="large"
-                              type="submit"
-                              variant="contained"
-                              color="secondary"
-                            >
-                              Enter
-                            </Button>
-                          </AnimateButton>
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </form>
-                  </PlayerCardWrapper>
+      <AuthWrapper1>
+        <Grid
+          container
+          sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}
+          justifyContent="center"
+        >
+          <PlayerCardWrapper>
+            <Grid
+              container
+              direction="column"
+              justifyContent="center"
+              spacing={2}
+            >
+              <Grid
+                item
+                xs={12}
+                container
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Box
+                  sx={{
+                    mb: 2,
+                  }}
+                >
+                  <Typography variant="h3">Stadium Entry Form</Typography>
+                </Box>
               </Grid>
+            </Grid>
+
+            <form onSubmit={submitStadium}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <FormControl fullWidth className={classes.Input}>
+                    <InputLabel htmlFor="stadium-capacity">
+                      Stadium Capacity
+                    </InputLabel>
+                    <OutlinedInput
+                      id="stadium-capacity"
+                      type="text"
+                      value={stadiumCapacity}
+                      onChange={(e) => setStadiumCapacity(e.target.value)}
+                      name="stadiumCapacity"
+                      label="Stadium Capacity"
+                      inputProps={{
+                        classes: {
+                          notchedOutline: classes.notchedOutline,
+                        },
+                      }}
+                    />
+                  </FormControl>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Box
+                    sx={{
+                      alignItems: "center",
+                      display: "flex",
+                    }}
+                  >
+                    <Divider
+                      className={classes.signDivider}
+                      orientation="horizontal"
+                    />
+                    <AnimateButton>
+                      <Button
+                        variant="outlined"
+                        className={classes.signText}
+                        sx={{
+                          borderRadius: `${customization.borderRadius}px`,
+                        }}
+                        disableRipple
+                        disabled
+                      >
+                        Address Details
+                      </Button>
+                    </AnimateButton>
+                    <Divider
+                      className={classes.signDivider}
+                      orientation="horizontal"
+                    />
+                  </Box>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Box autoWidth="true" sx={{ minWidth: 250 }}>
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-customized-select-native">
+                        Select Stadium
+                      </InputLabel>
+                      <Select
+                        labelId="demo-customized-select-native"
+                        id="demo-customized-select-native"
+                        value={location}
+                        input={<OutlinedInput label="Select Stadium" />}
+                        onChange={(e) => setLocation(e.target.value)}
+                      >
+                        {existingLocations?.map((location, index) => (
+                          <MenuItem key={index} value={location.location_id}>
+                            {location.location_name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </Box>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Box
+                    sx={{
+                      mt: 2,
+                    }}
+                  >
+                    <AnimateButton>
+                      <Button
+                        disableElevation
+                        fullWidth
+                        size="large"
+                        type="submit"
+                        variant="contained"
+                        color="secondary"
+                      >
+                        Enter
+                      </Button>
+                    </AnimateButton>
+                  </Box>
+                </Grid>
+              </Grid>
+            </form>
+          </PlayerCardWrapper>
+        </Grid>
       </AuthWrapper1>
     </>
   );

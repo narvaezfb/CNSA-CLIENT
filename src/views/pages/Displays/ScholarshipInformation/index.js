@@ -52,7 +52,7 @@ export default function ScholarshipTable() {
 
   const getScholarships = () => {
     return axios
-      .get("/cnsa/v1/scholarships")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/scholarships")
       .then((response) => {
         setExistingScholarships(response.data.data);
         console.log(response.data.data);

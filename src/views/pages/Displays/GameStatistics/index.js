@@ -29,7 +29,7 @@ const columns = [
   //       params.getValue(params.id, "player_last_name") || ""
   //     }`,
   // },
-  { field: "vistor_team", headerName: "Visitor Team ", width: 200  },
+  { field: "vistor_team", headerName: "Visitor Team ", width: 200 },
   { field: "local_team", headerName: "Local Team", width: 200 },
   {
     field: "visitor_team_score",
@@ -67,13 +67,13 @@ export default function GameStatistics() {
   const [existingGames, setExistingGames] = useState();
 
   //Load data from APIs
-  useEffect(() => { 
+  useEffect(() => {
     getGames();
   }, []);
 
   const getGames = () => {
     return axios
-      .get("/cnsa/v1/games")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/games")
       .then((response) => {
         setExistingGames(response.data.data);
         console.log(response.data.data);
@@ -83,17 +83,15 @@ export default function GameStatistics() {
 
   return (
     <>
-     
-              <div style={{ height: 400, width: 1000 }}>
-                <DataGrid
-                  getRowId={(existingGames) => existingGames.game_id}
-                  rows={existingGames}
-                  columns={columns}
-                  pageSize={5}
-                  rowsPerPageOptions={[5]}
-                />
-              </div>
-
+      <div style={{ height: 400, width: 1000 }}>
+        <DataGrid
+          getRowId={(existingGames) => existingGames.game_id}
+          rows={existingGames}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+        />
+      </div>
     </>
   );
 }

@@ -71,7 +71,7 @@ const RecruitmentIncidentForm = () => {
   //Get Existing teams from Teams API
   const getTeams = () => {
     return axios
-      .get("/cnsa/v1/teams")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/teams")
       .then((response) => {
         setExistingTeams(response.data.data);
       })
@@ -81,7 +81,7 @@ const RecruitmentIncidentForm = () => {
   //Get Existing Positions from Teams API
   const getPlayers = () => {
     return axios
-      .get("/cnsa/v1/players")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/players")
       .then((response) => {
         setExistingPlayers(response.data.data);
       })
@@ -91,7 +91,7 @@ const RecruitmentIncidentForm = () => {
   //Get Existing Positions from Teams API
   const getRules = () => {
     return axios
-      .get("/cnsa/v1/recRules")
+      .get("https://cnsa-server.nn.r.appspot.com/cnsa/v1/recRules")
       .then((response) => {
         setExistingRules(response.data.data);
       })
@@ -113,7 +113,7 @@ const RecruitmentIncidentForm = () => {
     const result = await axios({
       method: "POST",
       headers: { "content-type": "application/json" },
-      url: "/cnsa/v1/players",
+      url: "https://cnsa-server.nn.r.appspot.com/cnsa/v1/players",
       data: data,
     });
 
@@ -127,12 +127,7 @@ const RecruitmentIncidentForm = () => {
   return (
     <>
       <Grid container direction="column" justifyContent="center" spacing={2}>
-        <Grid
-          xs={12}
-          container
-          alignItems="center"
-          justifyContent="center"
-        >
+        <Grid xs={12} container alignItems="center" justifyContent="center">
           <Box
             sx={{
               mb: 2,
@@ -180,28 +175,28 @@ const RecruitmentIncidentForm = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12}>
-            <Box autoWidth="true" sx={{ minWidth: "50%" }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">
-                  Select Recruitment infraction
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={rules}
-                  label="team"
-                  input={<OutlinedInput label="Select Recruitment Infraction"/>}
-                  onChange={(e) => setRules(e.target.value)}
-                >
-                  {existingRules?.map((rule, index) => (
-                    <MenuItem key={index} value={rule.recruitment_rule_id}>
-                      {rule.name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-          </Grid>
+          <Box autoWidth="true" sx={{ minWidth: "50%" }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">
+                Select Recruitment infraction
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={rules}
+                label="team"
+                input={<OutlinedInput label="Select Recruitment Infraction" />}
+                onChange={(e) => setRules(e.target.value)}
+              >
+                {existingRules?.map((rule, index) => (
+                  <MenuItem key={index} value={rule.recruitment_rule_id}>
+                    {rule.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+        </Grid>
 
         <Grid item xs={12}>
           <Box
@@ -227,8 +222,8 @@ const RecruitmentIncidentForm = () => {
             <Divider className={classes.signDivider} orientation="horizontal" />
           </Box>
         </Grid>
-        <Grid  container spacing={2}>
-        <Grid item xs={6} md={6}>
+        <Grid container spacing={2}>
+          <Grid item xs={6} md={6}>
             <Box sx={{ minWidth: "50%" }}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">
@@ -239,15 +234,15 @@ const RecruitmentIncidentForm = () => {
                   id="demo-simple-select"
                   value={team}
                   label="position"
-                  input={<OutlinedInput label="Select Team"/>}
+                  input={<OutlinedInput label="Select Team" />}
                   onChange={(e) => setTeam(e.target.value)}
                 >
                   {existingTeams?.map((team, index) => (
                     <MenuItem key={index} value={team.team_id}>
-                      {team.team_name }
+                      {team.team_name}
                     </MenuItem>
                   ))}
-                </Select> 
+                </Select>
               </FormControl>
             </Box>
           </Grid>
@@ -263,7 +258,7 @@ const RecruitmentIncidentForm = () => {
                   id="demo-simple-select"
                   value={player}
                   label="position"
-                  input={<OutlinedInput label="Select Player"/>}
+                  input={<OutlinedInput label="Select Player" />}
                   onChange={(e) => setPlayer(e.target.value)}
                 >
                   {existingPlayers?.map((player, index) => (
@@ -271,11 +266,11 @@ const RecruitmentIncidentForm = () => {
                       {player.player_email_address}
                     </MenuItem>
                   ))}
-                </Select> 
+                </Select>
               </FormControl>
             </Box>
           </Grid>
-</Grid>
+        </Grid>
 
         <Grid item xs={12}>
           <Box

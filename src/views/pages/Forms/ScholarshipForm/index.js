@@ -52,8 +52,6 @@ const ScholarshipForm = () => {
 
   //This function will send the data to the Create Team API
   const submitScholarshipForm = async () => {
-
-
     //gather all data that will be sent
     const data = {
       scholarship_name: scholarshipName,
@@ -64,7 +62,7 @@ const ScholarshipForm = () => {
     const result = await axios({
       method: "POST",
       headers: { "content-type": "application/json" },
-      url: "/cnsa/v1/scholarships",
+      url: "https://cnsa-server.nn.r.appspot.com/cnsa/v1/scholarships",
       data: data,
     });
 
@@ -74,7 +72,6 @@ const ScholarshipForm = () => {
       console.log("something went wrong");
     }
   };
-
 
   return (
     <>
@@ -117,9 +114,11 @@ const ScholarshipForm = () => {
             </FormControl>
           </Grid>
 
-          <Grid item xs={12}> 
+          <Grid item xs={12}>
             <FormControl fullWidth className={classes.Input}>
-              <InputLabel htmlFor="first-name">Scholarship Description</InputLabel>
+              <InputLabel htmlFor="first-name">
+                Scholarship Description
+              </InputLabel>
               <OutlinedInput
                 id="last-name"
                 type="text"
