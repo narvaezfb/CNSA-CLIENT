@@ -64,13 +64,18 @@ export default function RecruitmentTable() {
     <>
       <Grid container spacing={gridSpacing}>
         <Grid item xs={12}>
+          <Grid container justifyContent="center">
+            <Typography variant="h1">Recruitment Rule Information</Typography>
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
           <Grid
             container
             justifyContent="center"
             alignItems="center"
-            sx={{ minHeight: "calc(100vh - 68px)" }}
+            // sx={{ minHeight: "calc(100vh - 68px)" }}
           >
-            <Typography variant="h1">Recruitment Rule Information</Typography>
+            {/* <Typography variant="h1">Recruitment Rule Information</Typography> */}
             <InformationCardWrapper>
               <Box
                 sx={{

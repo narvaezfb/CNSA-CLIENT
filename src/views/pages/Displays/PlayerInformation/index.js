@@ -84,13 +84,17 @@ export default function PlayerTable() {
     <>
       <Grid container spacing={gridSpacing}>
         <Grid item xs={12}>
+          <Grid container justifyContent="center">
+            <Typography variant="h1">Player Information</Typography>
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
           <Grid
             container
             justifyContent="center"
-            alignItems="center"
-            sx={{ minHeight: "calc(100vh - 68px)" }}
+            // alignItems="center"
+            // sx={{ minHeight: "calc(100vh - 68px)" }}
           >
-            <Typography variant="h1">Player Information</Typography>
             <InformationCardWrapper>
               <Box
                 sx={{
