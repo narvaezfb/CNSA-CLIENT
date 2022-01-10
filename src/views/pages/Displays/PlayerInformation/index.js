@@ -28,27 +28,6 @@ const style = {
   p: 4,
 };
 
-// const cardStyle = {
-//   position: "absolute",
-//   top: "50%",
-//   left: "50%",
-//   transform: "translate(-50%, -50%)",
-//   width: "40% ",
-//   bgcolor: "background.paper",
-//   borderRadius: "16px",
-//   boxShadow: 24,
-//   p: 4,
-// };
-
-// const bull = (
-//   <Box
-//     component="span"
-//     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-//   >
-//     •
-//   </Box>
-// );
-
 export default function PlayerTable() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
